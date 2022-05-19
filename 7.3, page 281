@@ -1,0 +1,28 @@
+import java.util.Scanner;
+
+public class CountOccurrence {
+
+	public static void main(String[] args) {
+		Scanner askNums = new Scanner(System.in);
+		System.out.println("Please provide a list of numbers: ");
+		
+		String listN = askNums.nextLine();
+		String[] numbersS = listN.split(" ");
+		int[] numbersI = new int[numbersS.length];
+		int[] toOneHundred = new int[100];
+		for (int i = 0; i < numbersI.length;i++) {
+			numbersI[i] = Integer.parseInt(numbersS[i]);
+		}
+		for (int i = 0; i < numbersI.length; i++) {
+			toOneHundred[numbersI[i]]++;
+		}
+		for (int i = 1; i < toOneHundred.length; i++) {
+			if (toOneHundred[i] == 1)
+				System.out.println(i + " occurs 1 time.");
+			else if (toOneHundred[i] > 1)
+				System.out.println(i + " occurs " + toOneHundred[i] + " times.");
+		}
+		askNums.close();
+	}
+}
+
